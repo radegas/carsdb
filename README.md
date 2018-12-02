@@ -29,3 +29,17 @@ curl http://localhost:8080/cars
 curl -X PUT -H "Content-Type: application/json" -d '[{"manufacturer": "Citroen", "type": "Berlingo", "registration": "4UD 9999"}, {"manufacturer": "Ford", "type": "Mondeo", "registration": "2AH 0201"}]' http://localhost:8080/cars
 ```
 
+**Delete a car:**
+```
+curl -X DELETE http://localhost:8080/cars/2
+```
+
+**Delete all cars:**
+```
+curl -X DELETE http://localhost:8080/cars
+```
+
+**Update a car:**
+```
+curl -X PUT -H "Content-Type: application/json" -d '{"registration": "2AH 3333"}' http://localhost:8080/cars/4
+```
