@@ -11,7 +11,7 @@ mvn test
 
 **Run:**
 ```
-java -jar target/CarsDB-0.1.0.jar
+java -jar target/CarsDB-0.0.1.jar
 ```
 
 **Add a car:**
