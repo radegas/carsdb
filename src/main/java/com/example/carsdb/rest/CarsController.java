@@ -4,6 +4,7 @@ import com.example.carsdb.db.CarsRepository;
 import com.example.carsdb.db.entity.Car;
 
 import java.util.List;
+import org.springframework.dao.EmptyResultDataAccessException;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -66,7 +67,11 @@ public class CarsController {
    */
 	@DeleteMapping("/cars/{id}")
 	public void deleteCar(@PathVariable Long id) {
-		carsRepository.deleteById(id);
+    try {
+      carsRepository.deleteById(id);
+    } catch (EmptyResultDataAccessException ex) {
+      throw new CarNotFoundException(id);
+    }
 	}
 
   /**
